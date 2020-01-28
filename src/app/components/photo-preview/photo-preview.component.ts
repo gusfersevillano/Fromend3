@@ -24,10 +24,12 @@ export class PhotoPreviewComponent implements OnInit {
       this.idv= params ['idv'];
   	//	console.log(this.idv);
       this.photoService.getPhoto(this.id).subscribe(
-  			res => {this.photo = res;},
+  			res => {this.photo = res;
+            //console.log(this.photo);
+        },
   			err=> console.log(err)
   			)
-
+        console.log(this.photo);
   	})
 
   }
@@ -50,12 +52,12 @@ export class PhotoPreviewComponent implements OnInit {
   		)
   }
 
-  updatePhoto(title:HTMLInputElement, description:HTMLTextAreaElement): boolean {
+  updatePhoto(transaccion:HTMLInputElement, tipo:HTMLInputElement, sector:HTMLInputElement, precio:HTMLInputElement, metros:HTMLInputElement, caracteristicas:HTMLTextAreaElement, vendedor: HTMLInputElement): boolean {
   	
-  	this.photoService.updatePhoto(this.id, title.value, description.value).subscribe(
+  	this.photoService.updatePhoto(this.id, transaccion.value, tipo.value,  sector.value, precio.value,  metros.value, caracteristicas.value, vendedor.value).subscribe(
   		res=> {
-  			console.log(res),
-  			this.router.navigate(['/photos'])},	
+  			//console.log(res),
+  			this.router.navigate(['/photos', this.idv])},	
   		err=> console.log(err)
   		);
   	return false;

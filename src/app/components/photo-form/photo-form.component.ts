@@ -63,7 +63,7 @@ export class PhotoFormComponent implements OnInit {
 
  }
 
- uploadPhoto(venta:HTMLInputElement, precio:HTMLInputElement, sector:HTMLInputElement, metros:HTMLInputElement, caracteristicas: HTMLTextAreaElement, vendedor: HTMLInputElement):boolean{
+ uploadPhoto(venta:HTMLInputElement, tipo:HTMLInputElement, precio:HTMLInputElement, sector:HTMLInputElement, metros:HTMLInputElement, caracteristicas: HTMLTextAreaElement, vendedor: HTMLInputElement):boolean{
 
    //console.log(venta.value);
    //console.log(precio.value);
@@ -106,7 +106,7 @@ export class PhotoFormComponent implements OnInit {
 
 
 
-  this.photoService.createPhoto(venta.value, precio.value, sector.value, metros.value, caracteristicas.value, vendedor.value, this.file1)
+  this.photoService.createPhoto(venta.value, tipo.value, precio.value, sector.value, metros.value, caracteristicas.value, vendedor.value, this.file1)
   .subscribe(res => {
    this.router.navigate(['/photos/', this.idv]);
   
@@ -122,7 +122,7 @@ dibujar():boolean{
     var img2 = document.getElementById("casa") as HTMLImageElement;
     var mysrc= img2.src;
    
-    canvas.drawImage(mysrc, 0, 0, 335, 260, 1);
+    canvas.drawImage(mysrc, 0, 0, 600, 400, 1)
     return false;
  
   }
@@ -133,7 +133,7 @@ dibujar():boolean{
     //canvas.drawCircle(200, 200, 100, "black", 1, "yellow", .4);
     //canvas.drawRectangulo(0, 0, 100, 260, "black", 1, "yellow", 1);
 	//canvas.drawTexto("logico", 0, 0);
-	canvas.drawRectangulo(0, 0, 120, 260, "white", 1, "white", 0.1 );
+	canvas.drawRectangulo(0, 0, 200, 400, "white", 1, "white", 0.1 );
    return false;
 
   }
@@ -142,38 +142,50 @@ dibujar():boolean{
     var canvas = new CanvasService("mycanvas");
 
     var fillStyle ="rgba(0, 0, 0)";
-    var font = "16px Arial";
+    var font = "24px Arial";
 
-    var fillStyle1 ="rgba(0, 0, 0, 0.4)";
-    var font1 = "9px Arial";
-     var font2 = "12px Arial";
+    var fillStyle1 ="rgba(80, 80, 80)";
+    var font1 = "12px Arial";
+     var font2 = "20px Arial";
      var x=5;
-     var y=5;
+     var y=25;
+
 
     var letrero1 = document.getElementById("L1") as HTMLInputElement;
     var titulo1 = letrero1.value;
-    canvas.drawTexto(titulo1, x+30, 65, fillStyle, font);
+    canvas.drawTexto(titulo1, x+50, 110, fillStyle, font);
+
+    var letrero11 = document.getElementById("L11") as HTMLInputElement;
+    var titulo11= letrero11.value;
+    canvas.drawTexto("Tipo:", x+10, y+110, fillStyle1, font1);
+    canvas.drawTexto(titulo11, x+10, 130+y, fillStyle, font2);
 
 
     var letrero2 = document.getElementById("L2") as HTMLInputElement;
-    var titulo2 = letrero2.value;
-    canvas.drawTexto("Precio:", x+10, y+80, fillStyle1, font1);
-    canvas.drawTexto(titulo2, x+40, y+93, fillStyle, font2);
+    var titulo2 = Number(letrero2.value);
+    canvas.drawTexto("Precio:", x+10, y+150, fillStyle1, font1);
+    canvas.drawTexto(titulo2.toLocaleString('de-DE'), x+10, y+170, fillStyle, font2);
 
     var letrero3 = document.getElementById("L3") as HTMLInputElement;
     var titulo3 = letrero3.value;
-    canvas.drawTexto("Sector:", x+10, y+108, fillStyle1, font1);
-    canvas.drawTexto(titulo3, x+40, y+121, fillStyle, font2);
+    canvas.drawTexto("Sector:", x+10, y+190, fillStyle1, font1);
+    canvas.drawTexto(titulo3, x+10, y+210, fillStyle, font2);
 
     var letrero4 = document.getElementById("L4") as HTMLInputElement;
-    var titulo4 = letrero4.value;
-    canvas.drawTexto("Área (m²):", x+10, y+136, fillStyle1, font1);
-    canvas.drawTexto(titulo4, x+40, y+148, fillStyle, font2);
+    var titulo4 = Number(letrero4.value);
+    canvas.drawTexto("Área (m²):", x+10, y+230, fillStyle1, font1);
+    canvas.drawTexto(titulo4.toLocaleString('de-DE'), x+10, y+250, fillStyle, font2);
 
-    canvas.drawLine(10, 180, 100, 180, "rgba(0,0,0)", 1);
-    canvas.drawLine(10, 185, 100, 185, "rgba(0,230,230)", 1);
+    var letrero5 = document.getElementById("N1") as HTMLInputElement;
+    var titulo5 = letrero5.value;
+    canvas.drawTexto("Asesor:", x+10, y+270, fillStyle1, font1);
+    canvas.drawTexto(titulo5.toUpperCase(), x+10, y+290, fillStyle, font2);
 
-    canvas.drawImage("assets/LOGO5.png", x+5, 5, 110, 45, 1);
+
+    canvas.drawLine(10, 350, 180, 350, "rgba(0,0,0)", 1);
+    canvas.drawLine(10, 365, 180, 365, "rgba(0,230,230)", 1);
+
+    canvas.drawImage("assets/LOGO5.png", x+5, 10, 200, 80, 1);
 
   
 

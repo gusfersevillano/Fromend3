@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height: 2.5rem;">
  <div class="container">  
- 	<a class="navbar-brand" routerLink=""> {{user1}} </a>
+ 	<a class="navbar-brand" routerLink=""> {{user1 | uppercase}} </a>
  	<a class="nav-link" routerLink="/photos/{{idv}}" >Regresa</a>
  
 
@@ -18,13 +18,26 @@
 			</div>
 
 			<div clas="card-body" align= "center">
-				<form (submit)="uploadPhoto(venta, precio, sector, metros, caracteristicas, vendedor)">
+				<form (submit)="uploadPhoto(venta, tipo, precio, sector, metros, caracteristicas, vendedor)">
 					<input  class="d-none" [value]=idv  #vendedor >
+					<input  id="N1" class="d-none" [value]=user1 #vendedor1 >
 					<div class="form-group">
 						<select id="L1" class= "form-control" required #venta>
 						  <option value="VENTA">VENTA</option>
 						  <option value="ALQUILER">ALQUILER</option>
 						  <option value="OTRO">OTRO</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select id="L11" class= "form-control" required #tipo>
+						  <option value="Casa">Casa</option>
+						  <option value="Departamento">Departamento</option>
+						  <option value="Terreno">Terreno</option>
+						  <option value="Oficina">Oficina</option>
+						  <option value="Galpón bodega">Galpón bodega</option>
+						  <option value="Local comercial">Local comercial</option>
+						  <option value="Finca">Finca</option>
+						  <option value="Otro">Otro</option>
 						</select>
 					</div>
 
@@ -36,9 +49,23 @@
 						<select id="L3" class= "form-control" required #sector>
 						  <option value="Norte">Norte</option>
 						  <option value="Sur">Sur</option>
+						  <option value="Centro">Centro</option>
+						  <option value="Chillogallo">Chillogallo</option>
 						  <option value="Centro norte">Centro norte</option>
-						  <option value="Centro norte">Valles</option>
+						  <option value="Carolina">Carolina</option>
+						  <option value="Quito Tenis">Quito Tenis</option>
+						  <option value="Ponceano">Ponceano</option>
+						  <option value="Calderón">Calderón</option>
+						  <option value="Carcelén">Carcelén</option>
+						  <option value="Conocoto">Conocoto</option>
+						  <option value="Sangolqui">Sangolqui</option>
+						  <option value="Tumbaco">Tumbaco</option>
+						  <option value="Cumbaya">Cumbaya</option>
+						  <option value="Calderón">Calderón</option>
+						  <option value="Carcelén">Carcelén</option>
 						  <option value="Provincia">Provincia</option>
+
+
 						</select>
 					</div>
 
@@ -59,7 +86,7 @@
 
 				
 					<form >
-						<canvas id="mycanvas"  width="330" height="200">
+						<canvas id="mycanvas"  width="600" height="400">
 
 		    			</canvas>
 

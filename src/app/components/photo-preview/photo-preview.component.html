@@ -1,3 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height: 2.5rem;">
+ <div class="container">  
+ 	<a class="navbar-brand" routerLink=""> {{user1 | uppercase}} </a>
+ 	<a class="nav-link" routerLink="/photos/{{idv}}" >Regresa</a>
+ 
+
+ </div>
+
+</nav>
+
+
 
 <div class="row" *ngIf="!photo; else main_content">
 	<h1>Loading...</h1>
@@ -17,16 +28,35 @@
 	</div>
 		<div class="col-md-7">
 			<div class="card">
-				<form class="card-body" (submit)="updatePhoto(venta, precio, sector, metros, caracteristicas, vendedor)">		
+				  
+				
+				<form class="card-body" (submit)="updatePhoto(transaccion, tipo, precio, sector, metros, caracteristicas, vendedor)">
+				<a href="" title="">transacción </a>		
 					<div class="form-group">
-						<input type="text" class="d-none" placeholder="transaccion" [value]="photo.vendedor" #venta1>
+						<input  class="d-none" [value]=idv  #vendedor >
+						<input  id="N1" class="d-none" [value]=user1 #vendedor1 >
+
+
 					</div>
 					<div class="form-group">
-						<select id="L1" class= "form-control" required #venta [value]="photo.transaccion">
-						  <option value="Venta">Venta</option>
-						  <option value="Alquiler">Alquiler</option>
-						  <option value="Otro">Otro</option>
+						<select id="L1" class= "form-control" [value]="photo.transaccion" required  #transaccion>
+						  <option value="VENTA">VENTA</option>
+						  <option value="ALQUILER">ALQUILER</option>
+						  <option value="OTRO">OTRO</option>
 						</select> 
+					</div>
+				<a href="" title="">tipo </a>
+					<div class="form-group">
+						<select id="L11" class= "form-control" [value]="photo.tipo" required #tipo>
+						  <option value="Casa">Casa</option>
+						  <option value="Departamento">Departamento</option>
+						  <option value="Terreno">Terreno</option>
+						  <option value="Oficina">Oficina</option>
+						  <option value="Galpón bodega">Galpón bodega</option>
+						  <option value="Local comercial">Local comercial</option>
+						  <option value="Finca">Finca</option>
+						  <option value="Otro">Otro</option>
+						</select>
 					</div>
 
 					<div class="form-group">
@@ -37,8 +67,20 @@
 						<select id="L3" class= "form-control" [value]="photo.sector" required #sector>
 						  <option value="Norte">Norte</option>
 						  <option value="Sur">Sur</option>
+						  <option value="Centro">Centro</option>
+						  <option value="Chillogallo">Chillogallo</option>
 						  <option value="Centro norte">Centro norte</option>
-						  <option value="Centro norte">Valles</option>
+						  <option value="Carolina">Carolina</option>
+						  <option value="Quito Tenis">Quito Tenis</option>
+						  <option value="Ponceano">Ponceano</option>
+						  <option value="Calderón">Calderón</option>
+						  <option value="Carcelén">Carcelén</option>
+						  <option value="Conocoto">Conocoto</option>
+						  <option value="Sangolqui">Sangolqui</option>
+						  <option value="Tumbaco">Tumbaco</option>
+						  <option value="Cumbaya">Cumbaya</option>
+						  <option value="Calderón">Calderón</option>
+						  <option value="Carcelén">Carcelén</option>
 						  <option value="Provincia">Provincia</option>
 						</select>
 					</div>
@@ -50,9 +92,10 @@
 					<div class="form-group">
 						<textarea id="L5" rows="2" class="form-control" placeholder="Características principales" required #caracteristicas  [value]="photo.caracteristicas"  ></textarea>
 					</div>
-	<!--  		<button class="btn btn-primary btn-block">
+	 		
+	 				<button class="btn btn-primary btn-block" >
 						Actualizar
-					</button>-->
+					</button>
 				</form>
 				
 			</div>

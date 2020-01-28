@@ -8,6 +8,7 @@ import {SinginComponent} from './components/singin/singin.component';
 import {PrincipalComponent} from './components/principal/principal.component';
 import {PresentacionComponent} from './components/presentacion/presentacion.component';
 import {CatalogoComponent} from './components/catalogo/catalogo.component';
+import {EquipoComponent} from './components/equipo/equipo.component';
 import {ServiciosComponent} from './components/servicios/servicios.component';
 
 
@@ -24,6 +25,10 @@ const routes: Routes = [
 {
 	path:'servicios',
 	component: ServiciosComponent,
+},
+{
+	path:'equipo',
+	component: EquipoComponent,
 },
 {
 	path:'presentacion',

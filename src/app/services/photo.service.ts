@@ -19,10 +19,11 @@ export class PhotoService {
 
   constructor(private http:HttpClient) { }
 
-  createPhoto(venta: string, precio1: string, sector: string, metros: string, caracteristicas: string, vendedor: string, photo: File){
+  createPhoto(venta: string, tipo: string, precio1: string, sector: string, metros: string, caracteristicas: string, vendedor: string, photo: File){
 
   	const fd = new FormData();
   	fd.append('transaccion', venta);
+    fd.append('tipo', tipo);
   	fd.append('precio', precio1);
     fd.append('sector', sector);
     fd.append('metros', metros);
@@ -42,11 +43,17 @@ export class PhotoService {
     return this.http.post<Photo[]>(`${this.URL}api/photosV${vendedor}`, {vendedor});//ojo cambiar cuando ya subas
   }
 
-  getPhotosVB(vendedor: string, transaccion:string, precio:string, sector:string){
+  getPhotosVB(vendedor: string, transaccion:string, tipo: string, precio:string, sector:string){
     //return this.http.get<Photo[]>(`${this.UR1}5dcc92cbd23fc6026c6f5d29`);
-    return this.http.post<Photo[]>(`${this.URL}api/photosV${vendedor}`, {vendedor, transaccion, precio, sector} );//ojo cambiar cuando ya subas
+    return this.http.post<Photo[]>(`${this.URL}api/photosV${vendedor}`, {vendedor, transaccion, tipo, precio, sector} );//ojo cambiar cuando ya subas
   }
 
+  getPhotosVB1(transaccion:string, tipo: string, precio:string, sector:string){
+    //return this.http.get<Photo[]>(`${this.UR1}5dcc92cbd23fc6026c6f5d29`);
+    //console.log(tipo);
+    //console.log(transaccion);
+    return this.http.post<Photo[]>(`${this.URL}api/photosC`, {transaccion, tipo, precio, sector} );//ojo cambiar cuando ya subas
+  }
 
   getPhoto(id: string){
 	  return this.http.get<Photo>(`${this.URL}api/photos/${id}`)
@@ -57,8 +64,8 @@ export class PhotoService {
    	return this.http.delete(`${this.URL}api/photos/${id}`)
    }
 
-   updatePhoto(id: string, title:string, description: string){
-   		return this.http.put(`${this.URL}api/photos/${id}`, {title,description})
+   updatePhoto(id: string, transaccion:string, tipo:string, precio:string, sector:string, metros:string, caracteristicas: string, vendedor: string){
+    		return this.http.put(`${this.URL1}api/photos/${id}`, {transaccion, tipo, precio, sector, metros, caracteristicas, vendedor})
    }
 
 

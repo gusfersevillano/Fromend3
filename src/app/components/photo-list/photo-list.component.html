@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height: 2.5rem;">
  <div class="container">  
- 	<a class="navbar-brand" routerLink=""> {{user1}} </a>
-  <a class="nav-link" routerLink="/signup">Login</a>
+ 	<a class="navbar-brand" routerLink=""> {{user1 | uppercase}} </a>
+  <a class="nav-link" routerLink="/signup" *ngIf="user1=='gustavo' || user1=='daniel'">Login</a>
   <a class="nav-link" [routerLink]= "['new']" [queryParams]="{idv: idv}" >Nuevo</a>
+ <!--=====================================
+ <a [routerLink]= "['signup']" [queryParams]="{idv: idv}" *ngIf="user1=='gustavo'">Registrar</a>
+ ======================================-->
 
 
  </div>
@@ -14,16 +17,29 @@
           <div class="col-md-4 p4" >
                 <input  class="d-none" [value]=idv  #vendedor >
             <div class="form-group">
+              <a class="nav-link">Transacción:</a>
               <select id="L1" class= "form-control" placeholder="Venta"  #transaccion>
-                <option value=""></option>
+                <option value="">Todas</option>
                 <option value="VENTA">VENTA</option>
                 <option value="ALQUILER">ALQUILER</option>
                 <option value="OTRO">OTRO</option>
               </select>
+              <a class="nav-link">Tipo:</a>
+              <select id="L11" class= "form-control"  #tipo>
+                <option value="">Todos</option>
+                <option value="Casa">Casa</option>
+                <option value="Departamento">Departamento</option>
+                <option value="Terreno">Terreno</option>
+                <option value="Oficina">Oficina</option>
+                <option value="Galpón bodega">Galpón bodega</option>
+                <option value="Local comercial">Local comercial</option>
+                <option value="Finca">Finca</option>
+                <option value="Otro">Otro</option>
+              </select>
             
-
+            <a class="nav-link">USD:</a>
             <select id="L2" class= "form-control" placeholder="Precio"  #precio>
-              <option value=""> </option>
+              <option value="">Todos</option>
               <option value="1">0-100</option>
               <option value="2">100-300</option>
               <option value="3">300-500</option>
@@ -35,16 +51,28 @@
               <option value="9">150.000-300.000</option>
               <option value="10">más de 300.000</option>
             </select>
-           
+           <a class="nav-link">Sector:</a>
             <select id="L3" class= "form-control" placeholder="Sector"  #sector>
-              <option value=""></option>
+              <option value="">Todos</option>
               <option value="Norte">Norte</option>
               <option value="Sur">Sur</option>
+              <option value="Centro">Centro</option>
+              <option value="Chillogallo">Chillogallo</option>
               <option value="Centro norte">Centro norte</option>
-              <option value="Centro norte">Valles</option>
+              <option value="Carolina">Carolina</option>
+              <option value="Quito Tenis">Quito Tenis</option>
+              <option value="Ponceano">Ponceano</option>
+              <option value="Calderón">Calderón</option>
+              <option value="Carcelén">Carcelén</option>
+              <option value="Conocoto">Conocoto</option>
+              <option value="Sangolqui">Sangolqui</option>
+              <option value="Tumbaco">Tumbaco</option>
+              <option value="Cumbaya">Cumbaya</option>
+              <option value="Calderón">Calderón</option>
+              <option value="Carcelén">Carcelén</option>
               <option value="Provincia">Provincia</option>
             </select>
-             <button (click)="buscarproyectos(transaccion, precio, sector, vendedor)" class="btn btn-primary btn-block" type="">
+             <button (click)="buscarproyectos(transaccion, tipo, precio, sector, vendedor)" class="btn btn-primary btn-block" type="">
               Buscar
             </button>
 
@@ -61,7 +89,13 @@
 				{{photo.transaccion}}
 				
 			</div>
+
+      
 			<img [src]="'http://165.227.20.230:4000/'+ photo.imagePath" class= "img-card-top w-100" >
+
+    <!--
+      <img [src]="'http://localhost:4000/'+ photo.imagePath" class= "img-card-top w-100"  >
+    -->
 			<div clas ="card-body">
 				{{photo.caracteristicas}}
 			</div>

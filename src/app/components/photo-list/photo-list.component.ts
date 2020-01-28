@@ -57,12 +57,12 @@ export class PhotoListComponent implements OnInit {
 
     	}
   
-     buscarproyectos(transaccion:HTMLInputElement, precio:HTMLInputElement, sector:HTMLInputElement, vendedor: HTMLInputElement):boolean{
+  buscarproyectos(transaccion:HTMLInputElement, tipo:HTMLInputElement,  precio:HTMLInputElement, sector:HTMLInputElement, vendedor: HTMLInputElement):boolean{
 
         this.activeRoute.params.subscribe(params =>{
           this.idv= params ['idv'];
           
-          this.photoService.getPhotosVB(this.idv,  transaccion.value, precio.value, sector.value).subscribe(
+          this.photoService.getPhotosVB(this.idv, transaccion.value, tipo.value, precio.value, sector.value).subscribe(
               res => {this.photos = res; },
               err=> console.log(err)
           )
