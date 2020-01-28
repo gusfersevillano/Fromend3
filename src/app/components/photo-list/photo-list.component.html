@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height: 2.5rem;">
  <div class="container">  
  	<a class="navbar-brand" routerLink=""> {{user1 | uppercase}} </a>
-  <a class="nav-link" routerLink="/signup" *ngIf="user1=='gustavo' || user1=='daniel'">Login</a>
+  <a class="nav-link" routerLink="/signup" *ngIf="user1=='gustavo' || user1=='daniel espinosa'">Login</a>
   <a class="nav-link" [routerLink]= "['new']" [queryParams]="{idv: idv}" >Nuevo</a>
  <!--=====================================
  <a [routerLink]= "['signup']" [queryParams]="{idv: idv}" *ngIf="user1=='gustavo'">Registrar</a>
