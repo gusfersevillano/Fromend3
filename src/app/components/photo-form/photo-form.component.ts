@@ -22,6 +22,7 @@ export class PhotoFormComponent implements OnInit {
 	text:string;
   idv: string;
   user1: string;
+  telefono: string;
 	photoSelected: string | ArrayBuffer;
   constructor(private photoService: PhotoService, 
               private router: Router, 
@@ -36,7 +37,10 @@ export class PhotoFormComponent implements OnInit {
       this.activeRoute.params.subscribe(params =>{
         this.idv= params ['idv']; 
        this.UserService.getUsuario(this.idv).subscribe(
-           res => {this.user1 = res.username},
+           res => {this.user1 = res.username,
+                   this.telefono = res.telefono
+      
+                   },
            err=> console.log(err)
          )
      
@@ -181,6 +185,10 @@ dibujar():boolean{
     canvas.drawTexto("Asesor:", x+10, y+270, fillStyle1, font1);
     canvas.drawTexto(titulo5.toUpperCase(), x+10, y+290, fillStyle, font2);
 
+    var letrero6 = document.getElementById("T") as HTMLInputElement;
+    var titulo6 = letrero6.value;
+    //canvas.drawTexto("Asesor:", x+10, y+270, fillStyle1, font1);
+    canvas.drawTexto(this.telefono, x+10, y+310, fillStyle, font2);
 
     canvas.drawLine(10, 350, 180, 350, "rgba(0,0,0)", 1);
     canvas.drawLine(10, 365, 180, 365, "rgba(0,230,230)", 1);

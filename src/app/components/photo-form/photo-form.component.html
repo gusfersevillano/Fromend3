@@ -21,6 +21,7 @@
 				<form (submit)="uploadPhoto(venta, tipo, precio, sector, metros, caracteristicas, vendedor)">
 					<input  class="d-none" [value]=idv  #vendedor >
 					<input  id="N1" class="d-none" [value]=user1 #vendedor1 >
+					<input  id="T" class="d-none" [value]=telefono #telefono >
 					<div class="form-group">
 						<select id="L1" class= "form-control" required #venta>
 						  <option value="VENTA">VENTA</option>
