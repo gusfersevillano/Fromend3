@@ -65,7 +65,7 @@ export class PhotoService {
    }
 
    updatePhoto(id: string, transaccion:string, tipo:string, precio:string, sector:string, metros:string, caracteristicas: string, vendedor: string){
-    		return this.http.put(`${this.URL1}api/photos/${id}`, {transaccion, tipo, precio, sector, metros, caracteristicas, vendedor})
+    		return this.http.put(`${this.URL}api/photos/${id}`, {transaccion, tipo, precio, sector, metros, caracteristicas, vendedor})
    }
 
 

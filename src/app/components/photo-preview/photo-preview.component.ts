@@ -56,7 +56,7 @@ export class PhotoPreviewComponent implements OnInit {
   	
   	this.photoService.updatePhoto(this.id, transaccion.value, tipo.value,  sector.value, precio.value,  metros.value, caracteristicas.value, vendedor.value).subscribe(
   		res=> {
-  			//console.log(res),
+  			console.log(res),
   			this.router.navigate(['/photos', this.idv])},	
   		err=> console.log(err)
   		);

@@ -17,9 +17,19 @@ export class PhotoListComponent implements OnInit {
   id: string;
   idv: string;
   photo: Photo;
+  photoT: Photo;
+  
   photos =[];
+  photosT =[];
   user: User;
   user1: string;
+
+//nuevo
+  transaccion: string;
+  tipo: string;
+  sector: string;
+  precio: string;
+
   constructor(private photoService: PhotoService, 
               private router: Router,
               private activeRoute: ActivatedRoute,
@@ -28,8 +38,12 @@ export class PhotoListComponent implements OnInit {
 
     ngOnInit() {
      
+
      
+
      this.activeRoute.params.subscribe(params =>{
+
+
         this.idv= params ['idv']; 
         this.UserService.getUsuario(this.idv).subscribe(
             res => {this.user1 = res.username},
@@ -38,12 +52,31 @@ export class PhotoListComponent implements OnInit {
       
         if (!this.photo){
                 this.photoService.getPhotosV(this.idv).subscribe(
-                res => {this.photos = res; }, 
+                res => {this.photos = res; 
+                 // console.log(this.photos)
+               }, 
                err=> console.log(err)
                 )
         }
+
+
+
+//es est lo nuevo 
+
+        this.photoService.getPhotosVB1(this.transaccion, this.tipo, this.precio, this.sector).subscribe(
+            res => {this.photosT = res; 
+                   // console.log((this.photosT));
+                  },
+              err=> console.log(err),
+             
+          )
+    
+// aca se acaba lo nuevo 
+
       
       })
+
+
      
 
     }

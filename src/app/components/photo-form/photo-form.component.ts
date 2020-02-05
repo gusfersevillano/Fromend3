@@ -137,7 +137,7 @@ dibujar():boolean{
     //canvas.drawCircle(200, 200, 100, "black", 1, "yellow", .4);
     //canvas.drawRectangulo(0, 0, 100, 260, "black", 1, "yellow", 1);
 	//canvas.drawTexto("logico", 0, 0);
-	canvas.drawRectangulo(0, 0, 200, 400, "white", 1, "white", 0.1 );
+	canvas.drawRectangulo(0, 0, 200, 400, "white", 1, "white", 0.6 );
    return false;
 
   }
@@ -151,6 +151,7 @@ dibujar():boolean{
     var fillStyle1 ="rgba(80, 80, 80)";
     var font1 = "12px Arial";
      var font2 = "20px Arial";
+     var font3 = "17px Arial";
      var x=5;
      var y=25;
 
@@ -180,15 +181,23 @@ dibujar():boolean{
     canvas.drawTexto("Área (m²):", x+10, y+230, fillStyle1, font1);
     canvas.drawTexto(titulo4.toLocaleString('de-DE'), x+10, y+250, fillStyle, font2);
 
+    
     var letrero5 = document.getElementById("N1") as HTMLInputElement;
     var titulo5 = letrero5.value;
+        if (titulo5.length > 13){
+          var tLetra = "17px Arial";
+        }
+        else{
+          var tLetra ="20px Arial"
+        }
+     
     canvas.drawTexto("Asesor:", x+10, y+270, fillStyle1, font1);
-    canvas.drawTexto(titulo5.toUpperCase(), x+10, y+290, fillStyle, font2);
+    canvas.drawTexto(titulo5.toUpperCase(), x+10, y+290, fillStyle, tLetra);
 
+   
     var letrero6 = document.getElementById("T") as HTMLInputElement;
     var titulo6 = letrero6.value;
-    //canvas.drawTexto("Asesor:", x+10, y+270, fillStyle1, font1);
-    canvas.drawTexto(this.telefono, x+10, y+310, fillStyle, font2);
+    canvas.drawTexto(this.telefono, x+10, y+310, fillStyle, tLetra);
 
     canvas.drawLine(10, 350, 180, 350, "rgba(0,0,0)", 1);
     canvas.drawLine(10, 365, 180, 365, "rgba(0,230,230)", 1);
