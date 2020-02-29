@@ -25,11 +25,14 @@ export class PhotoListComponent implements OnInit {
   user1: string;
 
 //nuevo
-  transaccion: string;
+  transaccion1: string;
+   transaccion2: string;
+    transaccion3: string;
   tipo: string;
   sector: string;
   precio: string;
-
+  pi: string;
+  pf: string;
   constructor(private photoService: PhotoService, 
               private router: Router,
               private activeRoute: ActivatedRoute,
@@ -63,7 +66,7 @@ export class PhotoListComponent implements OnInit {
 
 //es est lo nuevo 
 
-        this.photoService.getPhotosVB1(this.transaccion, this.tipo, this.precio, this.sector).subscribe(
+        this.photoService.getPhotosVB1(this.transaccion1, this.transaccion2, this.transaccion3, this.tipo, this.precio, this.pi, this.pf).subscribe(
             res => {this.photosT = res; 
                    // console.log((this.photosT));
                   },

@@ -1,3 +1,97 @@
+<div  class="container" > 
+
+        
+        <div class="row">
+
+          <div class="col-md-4">
+
+            <!-- COLUMN 1 -->
+              
+              <div class="form-group">
+              <a class="textform1">Transacción:</a>
+                <div class="row">
+
+                    <div class="col-md-3">
+                      <a class="textform1">VENTA:  </a>
+                      <input type="checkbox" value= {{VENTA}} [(ngModel)]="VENTA"  data-md-icheck (change)="toggleVisibility($event)" class="largerCheckbox" #transaccion1/>
+
+                    </div>
+                    <div class="col-md-3"> 
+                       <a class="textform1">ALQUILER: </a>
+                      <input type="checkbox" value= {{ALQUILER}} [(ngModel)]="ALQUILER"  data-md-icheck (change)="toggleVisibility($event)" class="largerCheckbox" #transaccion2 />
+                    </div>
+                    <div class="col-md-3"> 
+                       <a class="textform1">OTRO: </a>
+                      <input type="checkbox" value= {{OTRO}} [(ngModel)]="OTRO"  data-md-icheck (change)="toggleVisibility($event)" class="largerCheckbox" #transaccion3 />
+                    </div>
+
+                </div>
+              
+                <a class="textform1">Tipo:</a>
+                <select id="L11" class= "form-control"  #tipo>
+                  <option value="">Todos</option>
+                  <option value="Casa">Casa</option>
+                  <option value="Departamento">Departamento</option>
+                  <option value="Terreno">Terreno</option>
+                  <option value="Oficina">Oficina</option>
+                  <option value="Galpón bodega">Galpón bodega</option>
+                  <option value="Local comercial">Local comercial</option>
+                  <option value="Finca">Finca</option>
+                  <option value="Otro">Otro</option>
+                </select>
+               
+                <div class="row">
+                    <div class="col-md-6">
+                      <a class="textform1">Precio desde:</a>
+                      <input id="L21" type="number"  class= "form-control" placeholder="USD" required #pi >
+                    </div>
+                    <div class="col-md-6"> 
+                      <a class="textform1">hasta:</a>
+                      <input id="L22" type="number"  class= "form-control" placeholder="USD" required #pf > 
+                    </div>
+                </div>
+    
+                <a class="textform1">Sector:</a>
+                <select id="L3" class= "form-control" placeholder="Sector"  #sector>
+                  <option value="">Todos</option>
+                  <option value="Norte">Norte</option>
+                  <option value="Sur">Sur</option>
+                  <option value="Centro">Centro</option>
+                  <option value="Chillogallo">Chillogallo</option>
+                  <option value="Centro norte">Centro norte</option>
+                  <option value="Carolina">Carolina</option>
+                  <option value="Quito Tenis">Quito Tenis</option>
+                  <option value="Ponceano">Ponceano</option>
+                  <option value="Calderón">Calderón</option>
+                  <option value="Carcelén">Carcelén</option>
+                  <option value="Conocoto">Conocoto</option>
+                  <option value="Sangolqui">Sangolqui</option>
+                  <option value="Tumbaco">Tumbaco</option>
+                  <option value="Cumbaya">Cumbaya</option>
+                  <option value="Calderón">Calderón</option>
+                  <option value="Carcelén">Carcelén</option>
+                  <option value="Provincia">Provincia</option>
+                </select>
+              
+                <button (click)="buscarproyectos(transaccion1, transaccion2, transaccion3, tipo, sector, pi, pf)" class="btn btn-primary btn-block" type="">
+                  Buscar
+                </button> 
+    
+              </div>
+
+
+
+          <!-- END COLUMN 1 -->
+          </div>
+         
+
+
+          
+  
+
+        </div>
+
+
 <h2  class="Titulo1" align="Left">Nuestro catálogo:</h2>
 <div class="card" >
  <div class="card-body">

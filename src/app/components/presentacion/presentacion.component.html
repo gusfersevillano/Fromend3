@@ -18,13 +18,25 @@
             <!-- COLUMN 1 -->
               
               <div class="form-group">
-                <a class="textform1">Transacción:</a>
-                <select id="L1" class= "form-control" placeholder="Venta"  #transaccion>
-                  <option value="">Todos</option>
-                  <option value="VENTA">VENTA</option>
-                  <option value="ALQUILER">ALQUILER</option>
-                  <option value="OTRO">OTRO</option>
-                </select>
+              <a class="textform1">Transacción:</a>
+                <div class="row">
+
+                    <div class="col-md-3">
+                      <a class="textform1">VENTA:  </a>
+                      <input type="checkbox" value= {{VENTA}} [(ngModel)]="VENTA"  data-md-icheck (change)="toggleVisibility($event)" class="largerCheckbox" #transaccion1/>
+
+                    </div>
+                    <div class="col-md-3"> 
+                       <a class="textform1">ALQUILER: </a>
+                      <input type="checkbox" value= {{ALQUILER}} [(ngModel)]="ALQUILER"  data-md-icheck (change)="toggleVisibility($event)" class="largerCheckbox" #transaccion2 />
+                    </div>
+                    <div class="col-md-3"> 
+                       <a class="textform1">OTRO: </a>
+                      <input type="checkbox" value= {{OTRO}} [(ngModel)]="OTRO"  data-md-icheck (change)="toggleVisibility($event)" class="largerCheckbox" #transaccion3 />
+                    </div>
+
+                </div>
+              
                 <a class="textform1">Tipo:</a>
                 <select id="L11" class= "form-control"  #tipo>
                   <option value="">Todos</option>
@@ -37,20 +49,18 @@
                   <option value="Finca">Finca</option>
                   <option value="Otro">Otro</option>
                 </select>
-                <a class="textform1">USD:</a>
-                <select id="L2" class= "form-control" placeholder="Precio"  #precio>
-                  <option value="">Todos</option>
-                  <option value="1">0-100</option>
-                  <option value="2">100-300</option>
-                  <option value="3">300-500</option>
-                  <option value="4">500-1.000</option>
-                  <option value="5">1.000-5.000</option>
-                  <option value="6">5.000-50.000</option>
-                  <option value="7">75.000-100.000</option>
-                  <option value="8">100.000-150.000</option>
-                  <option value="9">150.000-300.000</option>
-                  <option value="10">más de 300.000</option>
-                </select>
+               
+                <div class="row">
+                    <div class="col-md-6">
+                      <a class="textform1">Precio desde:</a>
+                      <input id="L21" type="number"  class= "form-control" placeholder="USD" required #pi >
+                    </div>
+                    <div class="col-md-6"> 
+                      <a class="textform1">hasta:</a>
+                      <input id="L22" type="number"  class= "form-control" placeholder="USD" required #pf > 
+                    </div>
+                </div>
+    
                 <a class="textform1">Sector:</a>
                 <select id="L3" class= "form-control" placeholder="Sector"  #sector>
                   <option value="">Todos</option>
@@ -72,8 +82,8 @@
                   <option value="Carcelén">Carcelén</option>
                   <option value="Provincia">Provincia</option>
                 </select>
-                
-                <button (click)="buscarproyectos(transaccion, tipo, sector, precio)" class="btn btn-primary btn-block" type="">
+              
+                <button (click)="buscarproyectos(transaccion1, transaccion2, transaccion3, tipo, sector, pi, pf)" class="btn btn-primary btn-block" type="">
                   Buscar
                 </button> 
     

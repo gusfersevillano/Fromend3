@@ -48,11 +48,11 @@ export class PhotoService {
     return this.http.post<Photo[]>(`${this.URL}api/photosV${vendedor}`, {vendedor, transaccion, tipo, precio, sector} );//ojo cambiar cuando ya subas
   }
 
-  getPhotosVB1(transaccion:string, tipo: string, precio:string, sector:string){
+  getPhotosVB1(transaccion1:string, transaccion2:string, transaccion3:string, tipo: string,  sector:string, pi:string, pf:string){
     //return this.http.get<Photo[]>(`${this.UR1}5dcc92cbd23fc6026c6f5d29`);
     //console.log(tipo);
     //console.log(transaccion);
-    return this.http.post<Photo[]>(`${this.URL}api/photosC`, {transaccion, tipo, precio, sector} );//ojo cambiar cuando ya subas
+    return this.http.post<Photo[]>(`${this.URL}api/photosC`, {transaccion1, transaccion2, transaccion3, tipo, sector, pi, pf} );//ojo cambiar cuando ya subas
   }
 
   getPhoto(id: string){

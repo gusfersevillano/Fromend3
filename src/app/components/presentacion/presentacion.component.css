@@ -130,3 +130,8 @@ background-color: #66999;
 
 }
 
+input.largerCheckbox
+{
+width: 40px;
+height: 40px;
+}

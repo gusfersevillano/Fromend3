@@ -16,6 +16,14 @@ import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { EquipoComponent } from './components/equipo/equipo.component';
 
+
+
+import { FormsModule } from '@angular/forms';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +42,9 @@ import { EquipoComponent } from './components/equipo/equipo.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
