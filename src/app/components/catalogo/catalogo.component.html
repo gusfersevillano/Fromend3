@@ -7,21 +7,21 @@
 
             <!-- COLUMN 1 -->
               
-              <div class="form-group">
-              <a class="textform1">Transacción:</a>
+              <div class="textform1">
+              <a class="textform2">Transacción:</a>
                 <div class="row">
 
                     <div class="col-md-3">
-                      <a class="textform1">VENTA:  </a>
+                      <a class="textform2">Venta</a>
                       <input type="checkbox" value= {{VENTA}} [(ngModel)]="VENTA"  data-md-icheck (change)="toggleVisibility($event)" class="largerCheckbox" #transaccion1/>
 
                     </div>
                     <div class="col-md-3"> 
-                       <a class="textform1">ALQUILER: </a>
+                       <a class="textform2">Alquiler</a>
                       <input type="checkbox" value= {{ALQUILER}} [(ngModel)]="ALQUILER"  data-md-icheck (change)="toggleVisibility($event)" class="largerCheckbox" #transaccion2 />
                     </div>
                     <div class="col-md-3"> 
-                       <a class="textform1">OTRO: </a>
+                       <a class="textform2">Otro</a>
                       <input type="checkbox" value= {{OTRO}} [(ngModel)]="OTRO"  data-md-icheck (change)="toggleVisibility($event)" class="largerCheckbox" #transaccion3 />
                     </div>
 
