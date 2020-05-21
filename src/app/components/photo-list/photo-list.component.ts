@@ -49,18 +49,38 @@ export class PhotoListComponent implements OnInit {
 
         this.idv= params ['idv']; 
         this.UserService.getUsuario(this.idv).subscribe(
-            res => {this.user1 = res.username},
+            res => {this.user1 = res.username
+                          if (!this.photo){
+                                if(this.user1==='daniel espinosa'){
+
+                                  //console.log(this.idv) 
+                                  this.photoService.getPhotosVB1(this.transaccion1, this.transaccion2, this.transaccion3, this.tipo, this.precio, this.pi, this.pf).subscribe(
+                                  res => {this.photos = res; 
+                                   // console.log((this.photosT));
+                                              },
+                                          err=> console.log(err),
+                                         
+                                      )
+
+                                }else 
+                                {
+                                  console.log('no eres daniel')
+                                  this.photoService.getPhotosV(this.idv).subscribe(
+                                  res => {this.photos = res; 
+                                     // console.log(this.photos)
+                                   }, 
+                                   err=> console.log(err)
+                                  )
+
+                                }
+
+                          }
+
+
+            },
             err=> console.log(err)
          )
       
-        if (!this.photo){
-                this.photoService.getPhotosV(this.idv).subscribe(
-                res => {this.photos = res; 
-                 // console.log(this.photos)
-               }, 
-               err=> console.log(err)
-                )
-        }
 
 
 
